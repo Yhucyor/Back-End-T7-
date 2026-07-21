@@ -1,9 +1,10 @@
 const express = require('express');
 const path = require('path'); // Thiết lập đường dẫn 
 const mongoose = require('mongoose');
+require('dotenv').config(); // Thêm thư viện DotENV để ẩn dữ liệu nhạy cảm 
 
 //Kết nối dữ liệu với MongoDB 
-mongoose.connect('mongodb+srv://24110349_db_user:djnVF32osKamndlp@cluster0.hpshty4.mongodb.net/tour-management');
+mongoose.connect(process.env.DATABASE);
 const Tour = mongoose.model("Tour", {
     name: String, // Trong bản ghi có phần nào thì trong này phải có phần đó 
     vehicle: String
