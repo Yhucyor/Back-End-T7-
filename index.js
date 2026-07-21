@@ -6,8 +6,6 @@ require('dotenv').config(); // Thêm thư viện DotENV để ẩn dữ liệu n
 const app = express();
 const port = 3000; 
 
-// Thêm biến Controller 
-const homeController = require('./controller/client/homeController');
 // Thiết lập views 
 app.set("views", path.join(__dirname, "views")); //views ở trước không được sửa ./views chính là đường dẫn thiết lập views cho người dùng
 app.set("view engine", "pug"); // Chỉ định cho express engine biết templete engine mà bạn đang dùng 
@@ -15,18 +13,10 @@ app.set("view engine", "pug"); // Chỉ định cho express engine biết temple
 // Thiết lập các thư mục tĩnh cho dự án 
 app.use(express.static(path.join(__dirname, "public")));
 
-// app.get('/', (req, res) => {
-//     res.send("Hello Trang chủ");
-// })
-
-app.get('/', homeController.home);
-
-// app.get('/tours', (req, res) => {
-//     res.send("Trang Tour du lịch"); 
-// })
-const tourRouter = require('./routes/client/tour.route');
-app.use('/', tourRouter );
-
+// Thiết lập Route 
+const routeClient = require('./routes/client/index.route');
+// app.get('/', routeClient); Sử dụng cái này thì bị lỗi 
+app.use('/', routeClient);
 app.listen(port, () => {
     console.log("Đã nhận tính hiệu từ Web");
 })

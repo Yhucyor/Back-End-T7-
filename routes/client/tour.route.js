@@ -2,9 +2,9 @@ const router = require('express').Router(); // Hộ trợ biến Router để th
 
 const tourController = require('../../controller/client/tourController');
 
-router.get('/tours', tourController.list)
-router.get('/tours/create', tourController.list)
-router.get('/tours/delete', tourController.list)
-router.get('/tours/edit', tourController.list)
+router.get('/', tourController.list)
+router.get('/create', tourController.list)
+router.get('/delete', tourController.list)
+router.get('/edit', tourController.list)
 
 module.exports = router;
