@@ -202,3 +202,68 @@ block main
                   )
         .swiper-pagination
   // End Section 3
+
+  -
+    var categorySection4  = [
+      {
+        avatar: "/assets/images/product-1.jpg",
+        slug: "#",
+        discount: 30,
+        name: "Hà Nội - Lào Cai - SaPa 4N3Đ",
+        priceAdult: 13650000,
+        priceNewAdult: 2590000,
+        code: "TOUR000001",
+        departureDateFormat: "22/12/2025",
+        time: "10 Ngày 9 Đêm",
+        ratingStars: 4,
+        ratingTotal: 20,
+        stockAdult: 10
+      },
+      {
+        avatar: "/assets/images/product-2.jpg",
+        slug: "#",
+        discount: 25,
+        name: "Combo Đà Nẵng 2024: ĐÀ NẴNG - HỘI AN - BÀ NÀ HILL",
+        priceAdult: 13650000,
+        priceNewAdult: 2590000,
+        code: "TOUR000002",
+        departureDateFormat: "22/12/2025",
+        time: "10 Ngày 9 Đêm",
+        ratingStars: 5,
+        ratingTotal: 32,
+        stockAdult: 20
+      },
+      {
+        avatar: "/assets/images/product-3.jpg",
+        slug: "#",
+        discount: 30,
+        name: "Combo Đà Nẵng 2024: ĐÀ NẴNG - HỘI AN",
+        priceAdult: 13650000,
+        priceNewAdult: 2590000,
+        code: "TOUR000003",
+        departureDateFormat: "22/12/2025",
+        time: "10 Ngày 9 Đêm",
+        ratingStars: 3,
+        ratingTotal: 15,
+        stockAdult: 15
+      }
+    ];
+  // Section 4
+  .section-4
+    .container
+      h2.box-title(
+        data-aos-duration="800" 
+        data-aos="fade-up"
+        ) #{categorySection4.name}
+      .inner-wrap(
+        data-aos-delay="150" 
+        data-aos-duration="800" 
+        data-aos="fade-up"
+        )
+        each item in categorySection4
+          // Product Item
+          +product-item(item)
+          // End Product Item
+      .inner-button
+        a.button-outline(href=`/category/${categorySection4.slug}`) Xem tất cả
+  // End Section 4
