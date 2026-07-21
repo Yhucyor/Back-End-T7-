@@ -9,6 +9,9 @@ app.set("views", path.join(__dirname, "views")); //views ở trước không đ�
 // Chỉ định cho express engine biết templete engine mà bạn đang dùng 
 app.set("view engine", "pug");
 
+// Thiết lập các thư mục tĩnh cho dự án 
+app.use(express.static(path.join(__dirname, "public")));
+
 // app.get('/', (req, res) => {
 //     res.send("Hello Trang chủ");
 // })
@@ -35,4 +38,6 @@ app.listen(port, () => {
 //1. Thiết lập dự án yarn init
 //2. cài đặt express
 //3. Cài đặt nodemon
-//4. Thêm pug
+//4. Thêm pug 
+//5. Phân tách các Pug thành các thành phần với nhau 
+//6. Thêm các file tĩnh vào trong dự án như css các kiểu thêm 1 thư mục là Public 
