@@ -1,0 +1,5 @@
+module.exports.home = (req, res) => {
+    res.render("client/pages/home.pug", {
+        titlePage: "Trang chủ" // Đây là 1 đối tượng 
+    });
+};

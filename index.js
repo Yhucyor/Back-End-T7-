@@ -3,10 +3,12 @@ const path = require('path'); // Thiết lập đường dẫn
 
 require('dotenv').config(); // Thêm thư viện DotENV để ẩn dữ liệu nhạy cảm 
 
-const Tour = require('./models/tour.model');
 const app = express();
 const port = 3000; 
 
+// Thêm biến Controller 
+const homeController = require('./controller/client/homeController');
+const tourController = require('./controller/client/tourController');
 // Thiết lập views 
 app.set("views", path.join(__dirname, "views")); //views ở trước không được sửa ./views chính là đường dẫn thiết lập views cho người dùng
 // Chỉ định cho express engine biết templete engine mà bạn đang dùng 
@@ -18,23 +20,13 @@ app.use(express.static(path.join(__dirname, "public")));
 // app.get('/', (req, res) => {
 //     res.send("Hello Trang chủ");
 // })
-app.get('/', (req, res) => {
-    res.render("client/pages/home.pug", {
-        titlePage: "Trang chủ" // Đây là 1 đối tượng 
-    });
-})
+
+app.get('/', homeController.home);
 
 // app.get('/tours', (req, res) => {
 //     res.send("Trang Tour du lịch"); 
 // })
-app.get('/tours', async (req, res) => {
-    const tourList = await Tour.find({});
-    console.log(tourList);
-    res.render("client/pages/tour-list.pug", {
-        titlePage: "Tour Du Lịch",
-        tourList: tourList
-    })
-})
+app.get('/tours', tourController.list)
 
 app.listen(port, () => {
     console.log("Đã nhận tính hiệu từ Web");
