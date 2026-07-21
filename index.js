@@ -8,11 +8,9 @@ const port = 3000;
 
 // Thêm biến Controller 
 const homeController = require('./controller/client/homeController');
-const tourController = require('./controller/client/tourController');
 // Thiết lập views 
 app.set("views", path.join(__dirname, "views")); //views ở trước không được sửa ./views chính là đường dẫn thiết lập views cho người dùng
-// Chỉ định cho express engine biết templete engine mà bạn đang dùng 
-app.set("view engine", "pug");
+app.set("view engine", "pug"); // Chỉ định cho express engine biết templete engine mà bạn đang dùng 
 
 // Thiết lập các thư mục tĩnh cho dự án 
 app.use(express.static(path.join(__dirname, "public")));
@@ -26,7 +24,8 @@ app.get('/', homeController.home);
 // app.get('/tours', (req, res) => {
 //     res.send("Trang Tour du lịch"); 
 // })
-app.get('/tours', tourController.list)
+const tourRouter = require('./routes/client/tour.route');
+app.use('/', tourRouter );
 
 app.listen(port, () => {
     console.log("Đã nhận tính hiệu từ Web");
