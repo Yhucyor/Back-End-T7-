@@ -3,3 +3,9 @@ module.exports.list = async (req, res) => {
     pageTitle: "Quản lí danh mục"
   })
 }
+
+module.exports.create = async (req, res) => {
+  res.render('admin/pages/category-create', {
+    pageTitle: "Tạo danh mục"
+  })
+}
