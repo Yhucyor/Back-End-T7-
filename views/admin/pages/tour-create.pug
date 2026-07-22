@@ -1,7 +1,7 @@
 extends ../layouts/default.pug
 
 block title
-  title Tạo tour
+  title #{pageTitle}
 
 block main
   h1.box-title Tạo tour
@@ -111,4 +111,4 @@ block main
       .inner-button.inner-two-col
         button Tạo mới
     .inner-back
-      a(href="#") Quay lại danh sách
+      a(href=`/${pathAdmin}/category/list`) Quay lại danh sách
