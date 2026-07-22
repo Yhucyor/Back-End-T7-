@@ -21,3 +21,15 @@ module.exports.accountAdminCreate = async (req, res) => {
     pageTitle: "Tài khoản quản trị"
   })
 }
+
+module.exports.roleList = async (req, res) => {
+  res.render('admin/pages/setting-role-list.pug', {
+    pageTitle: "Nhóm quyền"
+  })
+}
+
+module.exports.roleCreate = async (req, res) => {
+  res.render('admin/pages/setting-role-create.pug', {
+    pageTitle: "Tạo nhóm quyền"
+  })
+}
