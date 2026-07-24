@@ -35,7 +35,7 @@ module.exports.loginPost = async (req, res) => {
   }
 
   // Kiểm tra trạng thái tài khoản active thì mới cho đăng nhập
-  if(existAccount.status == "active"){
+  if(existAccount.status != "active"){
     res.json({
       code: "error",
       message: "Tài khoản chưa được kích hoạt"
@@ -46,7 +46,7 @@ module.exports.loginPost = async (req, res) => {
   // Tạo JWT 
   const token = jwt.sign(
     {
-      id: existAccount.id,
+      id: existAccount._id,
       email: existAccount.email
     },
     process.env.JWT_SECURITY, // chuỗi bảo mật để mã hóa thành token 

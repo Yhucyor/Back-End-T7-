@@ -43,6 +43,8 @@ if(loginForm) {
       },
     ])
     .onSuccess((event) => { // Quan tâm đến dữ liệu ở phần này 
+      //event.preventDefault(); // NGĂN FORM SUBMIT MẶC ĐỊNH
+      
       const email = event.target.email.value;
       const password = event.target.password.value;
       const rememberPassword = event.target.rememberPassword.checked;
@@ -50,7 +52,7 @@ if(loginForm) {
       console.log(email);
       console.log(password);
       console.log(rememberPassword);
-      console.log("Thuc hien tai day");
+      console.log("Kiem tra thuc hien");
 
       const dataFinal = {
         email: email,
@@ -73,6 +75,10 @@ if(loginForm) {
           if(data.code == "success"){
             window.location.href = `/${pathAdmin}/dashboard`;
           }
+        })
+        .catch(error => {
+          console.error("Fetch error:", error);
+          alert("Có lỗi xảy ra. Vui lòng thử lại!");
         })
     })
   ;
