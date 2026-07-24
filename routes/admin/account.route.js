@@ -4,6 +4,7 @@ const accountValidate = require('../../validates/account.validate')
 
 router.get('/login', accountController.login)
 router.get('/register', accountController.register)
+router.post('/login', accountValidate.loginPost, accountController.loginPost) 
 router.post('/register', accountValidate.registerPost, accountController.registerPost) 
 // Chạy hàm trước trước khi chạy hàm accountController 
 router.get('/register-initial', accountController.registerPostInitial)
